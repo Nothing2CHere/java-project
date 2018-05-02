@@ -14,7 +14,7 @@ sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://mybucket-brownd
 }
 stage('Report') {
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AKIAIKYKLDYJCIQH6G7Q', credentialsId: '', secretKeyVariable: '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']]) {
-    sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name jenkins'
+    sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name HW10'
   }
 //sh "env"
 }
