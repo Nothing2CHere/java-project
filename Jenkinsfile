@@ -14,7 +14,7 @@ stage('Deploy') {
 }
 stage('Report') {
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS cred1', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-    sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name HW10'}  // some block
+    sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name HW10aa'}  // some block
   //withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
   //  sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name HW10'}
   //sh "env"
