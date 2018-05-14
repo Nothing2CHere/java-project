@@ -2,8 +2,8 @@ properties([pipelineTriggers([githubPush()])])
 node('linux') {
 git url: 'https://github.com/Nothing2CHere/java-project.git', branch: 'master'
 stage('Unit Tests') {
-  sh 'ant -f test.xml -v'
-  junit 'reports/result.xml'
+  sh 'ant -f test.xml -v'   // initiate unit tests using ant
+  junit 'reports/result.xml'  // create a junit report
 }
 stage('Build') {
   sh 'ant -f build.xml -v'
