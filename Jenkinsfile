@@ -10,7 +10,7 @@ stage('Build') {
 }
 stage('Deploy') {
   // def output = sh returnStdout: true, script: 'aws ec2 describe-instances | jq .'
-  sh 'aws s3 cp /workspace/HW10-java-pipeline/dist/rectangle-*.jar s3://mybucket-browndaniel123/'  // copy to AWS S3 bucket
+  sh 'aws s3 cp /workspace/java-pipeline/dist/rectangle-*.jar s3://mybucket-browndaniel123/'  // copy to AWS S3 bucket
 }
 stage('Report') {
   withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: '18ae4211-3bff-4302-be0a-0d4c073c8adc', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
