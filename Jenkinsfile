@@ -13,10 +13,8 @@ stage('Deploy') {
   sh 'aws s3 cp /workspace/HW10-java-pipeline/dist/rectangle-*.jar s3://mybucket-browndaniel123/'  // copy to AWS S3 bucket
 }
 stage('Report') {
-  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS cred1', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-    sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name HW10aa'}  // some block
-  //withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-  //  sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name HW10'}
+  withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'jenkins-AWS', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+    sh 'aws cloudformation describe-stack-resources --region us-east-1 --stack-name HW10'}
   //sh "env"
 }
 }
